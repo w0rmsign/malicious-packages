@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.6.0",
+  "modified": "2026-11-04T14:06:07Z",
+  "details": "Malicious package. `carboniteapp` exfiltrates collected host/credential/wallet data to an attacker-controlled Discord/Telegram webhook. Information stealer with no legitimate functionality, so all published versions are malicious. Detected by wormsign dynamic detonation. Full indicators at the reference below.",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "carboniteapp",
+        "purl": "pkg:npm/carboniteapp"
+      },
+      "ranges": [
+        {
+          "type": "SEMVER",
+          "events": [
+            {
+              "introduced": "0"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "wormsign",
+      "type": "FINDER",
+      "contact": [
+        "https://x.com/w0rmsign"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "type": "WEB",
+      "url": "https://wormsign.io/portfolio/carboniteapp/"
+    }
+  ],
+  "database_specific": {
+    "iocs": {
+      "urls": [
+        "api.telegram.org"
+      ]
+    }
+  }
+}
