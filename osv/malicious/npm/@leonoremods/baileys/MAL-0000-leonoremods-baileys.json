@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.6.0",
+  "modified": "2026-11-12T19:06:59Z",
+  "details": "Malicious package. `@leonoremods/baileys` is a trojanized fork of the Baileys WhatsApp library (@whiskeysockets/baileys). on connection it issues an authenticated `w:mex` newsletter FOLLOW mutation (query_id 7871414976211147) that silently subscribes every victim to attacker-controlled WhatsApp channels \u2014 hardcoded newsletter JIDs: 120363407849633830@newsletter, 120363409911086003@newsletter, 120363412456119539@newsletter, 120363421563597486@newsletter, 120363424810646424@newsletter, 120363429677187777@newsletter, 120363431638412364@newsletter, 120363431951214986@newsletter. Legitimate Baileys never hardcodes a channel JID or auto-follows on connect; all published versions are malicious.",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "@leonoremods/baileys",
+        "purl": "pkg:npm/%40leonoremods%2Fbaileys"
+      },
+      "ranges": [
+        {
+          "type": "SEMVER",
+          "events": [
+            {
+              "introduced": "0"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "0.0.0-stage",
+        "1.2.9",
+        "1.10.1"
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "wormsign",
+      "type": "FINDER",
+      "contact": [
+        "https://x.com/w0rmsign"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "type": "WEB",
+      "url": "https://wormsign.io/portfolio/@leonoremods/baileys/"
+    }
+  ],
+  "database_specific": {
+    "iocs": {}
+  }
+}
