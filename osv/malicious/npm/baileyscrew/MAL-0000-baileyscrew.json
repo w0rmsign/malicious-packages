@@ -1,7 +1,7 @@
 {
   "schema_version": "1.6.0",
-  "modified": "2026-11-12T19:07:07Z",
-  "details": "Malicious package. `baileyscrew` is a trojanized fork of the Baileys WhatsApp library (@whiskeysockets/baileys). on connection it issues an authenticated `w:mex` newsletter FOLLOW mutation (query_id 7871414976211147) that silently subscribes every victim to attacker-controlled WhatsApp channels \u2014 hardcoded newsletter JIDs: 120363428062966280@newsletter. Legitimate Baileys never hardcodes a channel JID or auto-follows on connect; all published versions are malicious.",
+  "modified": "2026-11-13T14:19:11Z",
+  "details": "Malicious package. `baileyscrew` is a trojanized fork of the Baileys WhatsApp library (@whiskeysockets/baileys). `lib/Socket/Denzy-ZeroDay.js`, loaded by `lib/Socket/messages-send.js`, stamps event messages sent through the library with forwarded-newsletter context naming the hardcoded attacker-controlled WhatsApp channel 120363428062966280@newsletter (\"Denzy ZeroDay\"), so recipients see the victim's message as forwarded from that channel. Legitimate Baileys never hardcodes a channel JID. Versions 1.4.1 through 1.4.3 carry this code; the `0.0.0-stage` placeholder does not.",
   "affected": [
     {
       "package": {
@@ -20,7 +20,6 @@
         }
       ],
       "versions": [
-        "0.0.0-stage",
         "1.4.1",
         "1.4.2",
         "1.4.3"
