@@ -1,7 +1,7 @@
 {
   "schema_version": "1.6.0",
-  "modified": "2026-11-12T19:07:04Z",
-  "details": "Malicious package. `@shanks-dev/baileys` is a trojanized fork of the Baileys WhatsApp library (@whiskeysockets/baileys). on connection it issues an authenticated `w:mex` newsletter FOLLOW mutation (query_id 7871414976211147) that silently subscribes every victim to attacker-controlled WhatsApp channels \u2014 hardcoded newsletter JIDs: 120363406965898096@newsletter. Legitimate Baileys never hardcodes a channel JID or auto-follows on connect; all published versions are malicious.",
+  "modified": "2026-11-13T14:19:11Z",
+  "details": "Malicious package. `@shanks-dev/baileys` is a trojanized fork of the Baileys WhatsApp library (@whiskeysockets/baileys). `lib/Utils/interactive-message-handler.js`, loaded by `lib/Socket/messages-send.js`, stamps event messages sent through the library with forwarded-newsletter context naming the hardcoded attacker-controlled WhatsApp channel 120363406965898096@newsletter (\"alip clutch.\"), so recipients see the victim's message as forwarded from that channel. Legitimate Baileys never hardcodes a channel JID. Version 0.1.2 carries this code; the `0.0.0-stage` placeholder does not.",
   "affected": [
     {
       "package": {
@@ -20,7 +20,6 @@
         }
       ],
       "versions": [
-        "0.0.0-stage",
         "0.1.2"
       ]
     }
