@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.6.0",
+  "modified": "2026-11-21T04:55:00Z",
+  "details": "Malicious package. `@callmewanz/bails` is a trojanized fork of the Baileys WhatsApp library (@whiskeysockets/baileys). In `lib/Socket/newsletter.js` it hardcodes the channel JID 120363380357951328@newsletter and, 150 seconds after every socket is created, sends a newsletter FOLLOW for it from the victim's authenticated session, swallowing errors, with no option to disable it. `lib/Socket/luxu.js` also stamps outgoing messages with forwarded-newsletter context naming the same channel (\"WanzLonely\"). The README does not mention either behaviour. Legitimate Baileys never hardcodes channel JIDs. The channel is the same one followed by `@wanzforme/bails` (MAL-2026-18682). Version 0.0.0-stage is a placeholder stub without this code.",
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "npm",
+        "name": "@callmewanz/bails",
+        "purl": "pkg:npm/%40callmewanz%2Fbails"
+      },
+      "ranges": [
+        {
+          "type": "SEMVER",
+          "events": [
+            {
+              "introduced": "0"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "1.0.0"
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "wormsign",
+      "type": "FINDER",
+      "contact": [
+        "https://x.com/w0rmsign"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "type": "WEB",
+      "url": "https://wormsign.io/portfolio/@callmewanz/bails/"
+    }
+  ],
+  "database_specific": {
+    "iocs": {}
+  }
+}
